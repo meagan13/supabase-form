@@ -1,6 +1,7 @@
 import { Component, createSignal, onMount } from 'solid-js'
 import { Order, loadCart } from '../lib/data'
 import submit from '../../supabase/formSubmitFunction';
+import { post } from '../../supabase/supabaseSubmit';
 
 export const OrderForm: Component = () => {
     const [order, setOrder] = createSignal<Order>(loadCart());
@@ -20,7 +21,8 @@ export const OrderForm: Component = () => {
     const checkout = (e: any) => {
         e.preventDefault();
         submit(e);
-        location.href="/pay";
+        post(e);
+        // location.href="/pay";
     }
 
     return (

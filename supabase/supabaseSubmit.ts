@@ -41,7 +41,7 @@ export const post: APIRoute = async({ request }) => {
             { status: 500 }
         );
     } else {
-        const order_number = data[0].order_number;
+        const order_number = data[0].id;
 
         console.log("Order Number: ", order_number);
 
